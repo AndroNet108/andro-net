@@ -5,7 +5,7 @@
   --color-bg: #0A0A0A   ;
   --color-text-secondary: #333333;
   --color-accent: #00BCD4;
-  --color-accent-alt: #FF4081;
+  --color-accent-alt: #fffc40;
   --color-muted: #F5F5F5;
   --color-border: #CCCCCC;
   --color-hover: #222222;
@@ -21,7 +21,17 @@ body {
 
 *, *:before, *:after {
     box-sizing: border-box;
+  
+}
+
+main {
+  padding: 2rem;
+  background-image: url("assets/bg_stars.gif")
+}
+
+ul, li {
   list-style: none;
+  padding: 0;
 }
 
 a {
@@ -29,13 +39,32 @@ a {
   text-decoration: none;
  }
 
+
+ h1 {
+  font-family: 'Mozilla text', sans-serif;
+
+ }
+
+
+.screen-reader {
+  position: absolute;
+  left: -100000px;
+}
+
+/* HEADER */
+
 header {
   display: grid;
-  font-family: 'Mozilla text', sans-serif;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
+  place-items: center;
   padding: 1rem 2rem 1rem 2rem;
   justify-content: space-between;
   align-items: center;
+  font-family: 'Mozilla text', sans-serif;
+  background-image: url("assets/bg_stars.gif")
+
+  /* border-bottom: 1px solid var(--color-muted); */
+
 }
 
 .nav-list {
@@ -43,8 +72,24 @@ header {
   display: flex;
   gap: 1rem;
   align-items: center;
-
 }
+
+.logo{
+  max-width: 25rem;
+}
+
+.hero {
+  padding: 0 5px 0 5px;
+  width: fit-content;
+  background-color: var(--color-text);
+  color: var(--color-bg);
+}
+
+.s1 { font-size: 18px; }
+  .s2 { font-size: 19px; }
+  .s3 { font-size: 20px; }
+  .s4 { font-size: 21px; }
+  .s5 { font-size: 22px; }
 
 /* CARD-STYLE */
 
@@ -66,27 +111,52 @@ header {
   transition: border-color 200ms;
 }
 
-.card_title:hover::before,
-.card_title:focus-visible::before {
-  border-color: hotpink;
+.card_text:hover::before,
+.card_text:focus-visible::before {
+  border-color: var(--color-text);
 }
 
 .card {
+  background-color: var(--color-bg);
+  display: grid;
   position: relative;
   font-family: 'Roboto', sans-serif;
   cursor: pointer;
   width: fit-content;
-  border: 1px solid transparent;
+  border: 1px solid var(--color-text);
   border-radius: 1rem;
-    transition: 0.3s;
-  padding: 0.5rem;
+  transition: 0.3s;
+  padding: 1rem;
+  place-items: center;
+  gap: 1rem;
 }
 
-.card:hover {
-  border: 1px solid var(--color-text);
+.card:hover img{
+  transform: scale(1.1);
+  transition: 0.4s;
+
+}
+
+.card-tag-container {
+  display: grid;
+  grid-auto-flow: column ;
+  gap: 0.5rem;
+  place-self: flex-start;
+
+}
+.card-tag {
+  font-size: 0.8rem;
+  background-color: #f0f0f0;
+  border-radius: 0.5rem;
+  padding: 0.1rem 0.5rem;
+  border: 2px solid var(--color-accent-alt);
+  color: var(--color-bg);
 }
 
 .card-image {
   border-radius: 1rem;
   max-height: 200px;
+  min-height: 192px;
+  width: 100%;
+  max-width: fit-content;
 }
